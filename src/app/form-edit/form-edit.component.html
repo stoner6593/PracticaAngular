@@ -1,0 +1,25 @@
+<form [formGroup]="formMovie">
+        <div class="form-group">
+                <label for="id">Id</label>
+                <input type="text"  formControlName="id" readonly class="form-control" id="id" name="id"  placeholder="Nombre">
+                
+            </div>
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text"  formControlName="name" class="form-control" id="name" name="name"  placeholder="Nombre">
+        
+    </div>
+    <div class="form-group">
+        <label for="descripcion">Descripci&oacute;n</label>
+        <input type="text" formControlName="description" class="form-control" id="description" name="description" placeholder="Descripcion">
+    </div>
+    <div class="form-group">
+            <label for="genero">Genero</label>
+        <input type="text" formControlName="genre" class="form-control" id="genre" name="genre">       
+    </div>
+    <div class="form-group">
+            <label for="duracion">Duraci&oacute;n</label>
+        <input type="text" formControlName="duration"class="form-control" id="duration" name="duration">       
+    </div>
+    <button type="submit" (click)="updateMovie()" class="btn btn-primary">Guardar</button>
+</form>

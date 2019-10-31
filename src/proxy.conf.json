@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "http://movies_laravel.com.pe:8080/api/",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

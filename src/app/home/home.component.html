@@ -1,0 +1,45 @@
+<br>
+<div class="row">
+    <div class="col-md-10 mx-auto">
+        <div class="md-form">
+            <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInput>
+            <label for="search">Search</label>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <button type="button" (click)="openModal(template)" class="btn btn-outline-default btn-rounded waves-effect">
+            <i class="fas fa-plus-circle"></i> Agregar
+        </button>
+        
+    </div>
+</div>
+
+<table mdbTable #tableEl="mdbTable" class="z-depth-1">
+    <thead>
+    <tr>
+        <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let movie of movies; let i = index">
+        <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
+            scope="row">{{movie.id}}</th>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{movie.name}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{movie.description}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{movie.genre}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+            <a mdbBtn floating="true" size="sm" color="primary" (click)="verPelicula(movie)" mdbWavesEffect>
+                <mdb-icon fas icon="edit"></mdb-icon>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot class="grey lighten-5 w-100">
+    <tr>
+        <td colspan="4">
+        <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
+        </td>
+    </tr>
+    </tfoot>
+</table>
